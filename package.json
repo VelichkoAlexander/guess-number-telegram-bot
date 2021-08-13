@@ -1,0 +1,19 @@
+{
+  "name": "guess-the-number",
+  "version": "1.0.0",
+  "description": "guess the number telegram bot",
+  "main": "index.js",
+  "author": "Alexander Velichko",
+  "license": "MIT",
+  "scripts": {
+    "dev": "nodemon index.js",
+    "start": "node index.js"
+  },
+  "dependencies": {
+    "dotenv": "^10.0.0",
+    "node-telegram-bot-api": "^0.54.0"
+  },
+  "devDependencies": {
+    "nodemon": "^2.0.12"
+  }
+}
