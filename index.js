@@ -1,4 +1,4 @@
-const {bot} = require('./src/Bot');
+const {bot} = require('./src/BotInit');
 const botCommands = require('./src/BotCommandsList');
 const botCommandsListeners = require('./src/BotCommandsListeners');
 const keyboardListener = require('./src/KeyboardListener')

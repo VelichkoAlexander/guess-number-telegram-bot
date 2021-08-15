@@ -1,5 +1,5 @@
-const {checkCommand} = require("../Helpers/Index");
-const {bot} = require("./Bot");
+const {checkCommand} = require("../helpers/Index");
+const {bot} = require("./BotInit");
 const gameStart = require("./GameStart");
 
 const BotCommandsListeners = async (msg) => {

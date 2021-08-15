@@ -5,9 +5,9 @@ if (!token) {
   return;
 }
 const chats = {};
-const bot = new TelegramAPI(token, {polling: true});
+const botInit = new TelegramAPI(token, {polling: true});
 
 module.exports = {
   chats,
-  bot
+  bot: botInit
 };
