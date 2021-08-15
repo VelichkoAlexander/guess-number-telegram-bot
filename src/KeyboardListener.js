@@ -4,19 +4,27 @@ const {againOptions} = require("./Options");
 
 const keyboardListener = async (msg) => {
   const {data} = msg;
-  const {id: cbId } = msg;
+  console.log(msg)
+  const {id: cbId} = msg;
   const {id: chatId} = msg.message.chat;
+  const {message_id} = msg.message;
   if (data === '/again') {
-    bot.answerCallbackQuery(cbId);
-    return gameStart(chatId)
+    sendCbAndRemovePrevMessage(cbId, chatId, message_id);
+    return gameStart(chatId);
   }
   if (data === chats[chatId].toString()) {
-    bot.answerCallbackQuery(cbId);
+    sendCbAndRemovePrevMessage(cbId, chatId, message_id);
     return await bot.sendMessage(chatId, `Congratulations, you guessed the number ${chats[chatId]}`, againOptions);
   } else {
     bot.answerCallbackQuery(cbId);
+    sendCbAndRemovePrevMessage(cbId, chatId, message_id);
     return await bot.sendMessage(chatId, `Unfortunately, you did not guess, the bot guessed a number ${chats[chatId]}`, againOptions);
   }
+}
+
+function sendCbAndRemovePrevMessage(cbId, chatId, message_id) {
+  bot.answerCallbackQuery(cbId);
+  bot.deleteMessage(chatId, message_id);
 }
 
 module.exports = keyboardListener;
